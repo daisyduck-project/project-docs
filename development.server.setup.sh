@@ -5,7 +5,7 @@ apt install nodejs -y
 apt install npm -y
 #Install Docker
 echo -n "Install Docker\n"
-apt install ca-certificates curl gnupg
+apt install ca-certificates curl gnupg  -y
 install -m 0755 -d /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 chmod a+r /etc/apt/keyrings/docker.gpg
@@ -14,7 +14,7 @@ echo \
   "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
   tee /etc/apt/sources.list.d/docker.list > /dev/null
 apt update
-apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 gpasswd -a $USER docker
 newgrp docker
 #Install Minikube
